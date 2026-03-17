@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת ניהול משימות - Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-layout">
+        <div class="container">
+            <header>
+                <h1>🤖 Agent - מערכת ניהול משימות</h1>
+            </header>
+
+            <div class="chat-container">
+                <div id="messages" class="messages"></div>
+                
+                <div class="input-container">
+                    <input 
+                        type="text" 
+                        id="messageInput" 
+                        placeholder="לדוגמה: הוסף משימה לקנות חלב, הצג את כל המשימות..."
+                        autocomplete="off"
+                    >
+                    <button id="sendBtn">שלח</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tasks-board">
+            <h2>📋 לוח משימות</h2>
+            <div id="tasksList" class="tasks-list">
+                <div class="empty-state">אין משימות כרגע</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
