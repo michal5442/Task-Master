@@ -1,16 +1,19 @@
 # מערכת ניהול משימות עם Function Calling
 
 ## תיאור הפרויקט
-מערכת ניהול משימות המשתמשת ב-GPT עם Function Calling לביצוע פעולות CRUD על משימות.
+מערכת ניהול משימות המשתמשת ב-GPT עם Function Calling לביצוע פעולות CRUD על משימות, כולל תמיכה בתאריך יעד (`due_date`) ותזכורות מייל.
 
 ## מבנה הפרויקט
 
 ### todo_service.py
 שירות ניהול המשימות עם הפונקציות:
 - `get_tasks()` - קבלת כל המשימות
-- `add_task(title, description)` - הוספת משימה חדשה
-- `update_task(task_id, title, description, completed)` - עדכון משימה
+- `add_task(title, description, due_date)` - הוספת משימה חדשה
+- `update_task(task_id, title, description, completed, due_date)` - עדכון משימה
 - `delete_task(task_id)` - מחיקת משימה
+
+### email_reminder_service.py
+שירות תזכורות שמריץ בדיקה תקופתית, מזהה משימות שהגיע מועד ה-`due_date` שלהן, ושולח מייל דרך SMTP (פעם אחת לכל משימה).
 
 ### tools_todo.py
 הגדרת הכלים (tools) עבור GPT בפורמט JSON
@@ -65,4 +68,13 @@ uvicorn main:app --reload
 ## הגדרת .env
 ```
 OPENAI_KEY=your_api_key_here
+
+# Reminder Email (SMTP)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USERNAME=your_email@example.com
+SMTP_PASSWORD=your_app_password
+SMTP_USE_TLS=true
+REMINDER_FROM_EMAIL=your_email@example.com
+REMINDER_TO_EMAIL=recipient@example.com
 ```

@@ -21,6 +21,10 @@ tools_todo_gemini = [
                 "description": {
                     "type": "string",
                     "description": "תיאור המשימה"
+                },
+                "due_date": {
+                    "type": "string",
+                    "description": "תאריך יעד בפורמט ISO, למשל 2026-03-20T09:00:00"
                 }
             },
             "required": ["title"]
@@ -47,6 +51,10 @@ tools_todo_gemini = [
                 "completed": {
                     "type": "boolean",
                     "description": "האם המשימה הושלמה"
+                },
+                "due_date": {
+                    "type": "string",
+                    "description": "תאריך יעד חדש בפורמט ISO, למשל 2026-03-20T09:00:00"
                 }
             },
             "required": ["task_id"]
@@ -96,6 +104,10 @@ tools_todo = [
                     "description": {
                         "type": "string",
                         "description": "תיאור המשימה"
+                    },
+                    "due_date": {
+                        "type": "string",
+                        "description": "תאריך יעד בפורמט ISO, למשל 2026-03-20T09:00:00"
                     }
                 },
                 "required": ["title"]
@@ -125,6 +137,10 @@ tools_todo = [
                     "completed": {
                         "type": "boolean",
                         "description": "האם המשימה הושלמה"
+                    },
+                    "due_date": {
+                        "type": "string",
+                        "description": "תאריך יעד חדש בפורמט ISO, למשל 2026-03-20T09:00:00"
                     }
                 },
                 "required": ["task_id"]

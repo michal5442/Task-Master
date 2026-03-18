@@ -12,7 +12,10 @@ app = FastAPI()
 async def reminder_background_task():
     """רץ ברקע ובודק תזכורות כל 5 דקות"""
     while True:
-        check_and_send_reminders()
+        try:
+            check_and_send_reminders()
+        except Exception as error:
+            print(f"Reminder background task error: {error}")
         await asyncio.sleep(300)  # 5 דקות
 
 

@@ -29,11 +29,13 @@ async def agent_query_mock(message: str):
             response = "אין לך משימות כרגע. תוכל להוסיף משימה חדשה!"
     
     # הוסף משימה
-    elif "הוסף" in message or "צור" in message or "חדש" in message:
+    elif "הוסף" in message or "צור" in message or "חדש" in message or message_lower.startswith("צריך") or message_lower.startswith("צריכה"):
         if "." in message:
             title = message.split(".", 1)[1].strip()
         elif ":" in message:
             title = message.split(":", 1)[1].strip()
+        elif message_lower.startswith("צריך") or message_lower.startswith("צריכה"):
+            title = message.strip()
         else:
             title = message.replace("הוסף משימה", "").replace("הוסף", "").strip()
         
